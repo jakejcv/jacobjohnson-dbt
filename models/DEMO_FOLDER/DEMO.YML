@@ -27,8 +27,6 @@ models:
     description: "DBT Model for the clean_orders table"
   - name: final_orders
     description: "DBT Model for the final orders"
-  - name: patient
-    description: "DBT Model for patients"
   - name: concat_address
     description: "DBT Model for the address concat"
   - name: concat_name
