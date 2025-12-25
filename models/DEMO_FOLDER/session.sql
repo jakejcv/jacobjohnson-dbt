@@ -14,7 +14,7 @@ with session_src as (
         PAGES_VISITED,
         CURRENT_TIMESTAMP as INSERT_DTS
     from {{source('country', 'SESSION_SRC')}} a
-    left join DBT_DB.PUBLIC.COUNTRY_CODE B
+    left join {{ref('country_code')}} b
     USING(COUNTRY_CODE)
 )
 
