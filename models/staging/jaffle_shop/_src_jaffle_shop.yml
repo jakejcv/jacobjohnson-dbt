@@ -1,8 +1,24 @@
+version: 2
+
 sources:
   - name: jaffle_shop
     database: raw
     schema: jaffle_shop
+
     tables:
       - name: customers
+        # no freshness → dbt skips this table
+
       - name: orders
-      
+        loaded_at_field: _etl_loaded_at
+        config:
+          freshness:
+            warn_after:
+              count: 12
+              period: hour
+            error_after:
+              count: 1
+              period: day
+      - name: customers_clean
+      - name: dim_customers
+      - name: fct_orders
